@@ -1,2 +1,2 @@
 # Articles
-Daily, Essays and Ideas
+Daily, Articles and Ideas
