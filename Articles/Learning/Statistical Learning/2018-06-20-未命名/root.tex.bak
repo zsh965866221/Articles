@@ -23,11 +23,8 @@
 \let\labelindent\relax
 \usepackage{enumitem}
 \usepackage{microtype}
-\usepackage{geometry}
 
-\geometry{left=2.0cm, right=2.0cm, top=2.5cm, bottom=2.5cm}
-
-\setlength{\droptitle}{-2cm}
+\setlength{\droptitle}{-5cm}
 \title{一些统计学习的基本概念——概率不等式、泛化边界}
 \author{张树恒}
 \date{2018-06-20}
