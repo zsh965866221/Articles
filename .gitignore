@@ -1,0 +1,8 @@
+*.ipynb_checkpoints
+*.gz
+*.bak
+*.sav
+*.bbl
+*.log
+*.blg
+*.aux

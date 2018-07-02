@@ -13,9 +13,15 @@ $R_{\textrm{exp}}$叫做期望风险，但由于联合概率分布$Pr(X,Y)$是�
     R_{\textrm{emp}}(f) & = \frac{1}{N}\sum_{i=1}^N \ell(f,X,Y)
 \end{split}
 \end{equation}
-根据大数定理，当样本容量$N$趋于无穷时，经验风险$R_{\textrm{exp}}$ 趋于期望风险$R_{\textrm{emp}}$
+根据大数定理，当样本容量$N$趋于无穷时，经验风险$R_{\textrm{exp}}$ 趋于期望风险$R_{\textrm{emp}}$，但现实生活中训练集的样本容量不是无穷的，故在样本容量有限的情况下经验风险与期望风险的差异是多少，是怎么定义的，这就是可学习问题的泛化边界。
 
-\section{}
+\begin{tcolorbox}[title=强]
+    This is a \textbf{tcolorbox} with title.
+    \tcblower
+    Here, you see the lower part of the box.
+\end{tcolorbox}
+
+\section{条件均值}
 Eq. (\ref{Eq: exp loss})可以看成是关于$f$的能量泛函，我们要做的就是最小化该能量泛函，得到最优的$f$，故把期望误差风险转换成条件概率的形式
 \begin{equation}\label{Eq: exp loss conditional}
 \begin{split}
@@ -46,5 +52,9 @@ Eq. (\ref{Eq: exp loss})可以看成是关于$f$的能量泛函，我们要做�
         & = E[Y\mid X=x]
 \end{split}
 \end{equation}
-因此，$Y$的最优的预测是点$x$处的条件均值。则单纯基于统计的或者近邻算法均是根据该原理，计算每一点处的$y$对应的条件均值。
+因此，$Y$的最优的预测是点$x$处的条件均值。对$f(x)$的估计变成了对x点处的条件概率的估计（同联合概率$P(X,Y)$相同，该条件概率也是未知的）。这个地方需要提一下生成模型和概判别模型的区别，生成模型需要得到完整的联合概率分布表示（如混合高斯模型GMM），而判别模型只需要得到条件概率。如何根据现有的观测数据估计出每一个$x$点处的条件概率分布。近邻算法根据测试点$\hat{x}$附近的点来估计该条件分布。《The Elements of Statistical Learning》($P_{19}$)介绍线性回归模型$f(x)\approx x^T\beta$也是按照该原则的。这是基于模型的，则其有模型的假设空间$\mathcal{F}$，其要符合模型定义的约束，在这里线性回归模型的约束为线性超平面。
+
+ 
+这种估计仍然依据大数定理根据训练集对条件分布进行估计。
+
 \section{泛化边界}
